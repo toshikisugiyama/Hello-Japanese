@@ -7,6 +7,7 @@
   left: 0;
   width: 100vw;
   z-index: 10;
+  box-shadow: 0 0 5px 0px $middle-light-color;
   .section {
     min-height: $basic-vertical-padding;
     display: flex;
