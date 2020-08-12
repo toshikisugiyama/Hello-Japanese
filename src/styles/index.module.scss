@@ -1,0 +1,104 @@
+@import "./variables.scss";
+
+.top__wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: ($basic-vertical-padding / 2) 0;
+  @media screen and (max-width: $responsible) {
+    flex-direction: column;
+  }
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    min-height: 400px;
+    transform: translate(30%);
+    background-image: url(../public/images/top.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom 0 right 0;
+    filter: drop-shadow(0 15px 20px $middle-light-color);
+    @media screen and (max-width: $responsible) {
+      & {
+        transform: none;
+        min-height: 150px;
+        background-position: top 0 center;
+      }
+    }
+  }
+  .top {
+    position: relative;
+    &__title {
+      font-size: 96px;
+      margin: 0 0 ($basic-vertical-padding / 2);
+      @media screen and (max-width: $responsible) {
+        & {
+          font-size: 15vmin;
+        }
+      }
+    }
+  }
+}
+.container {
+  margin: $basic-vertical-padding 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  .intro {
+    position: relative;
+    width: 100%;
+    padding: $basic-vertical-padding;
+    @media screen and (max-width: $responsible) {
+      & {
+        padding: $basic-vertical-padding 0;
+      }
+    }
+    &__title {
+      font-size: 34px;
+      margin-bottom: $basic-vertical-padding / 2;
+      line-height: 120%;
+    }
+    &__title,
+    &__description {
+      text-align: center;
+      @media screen and (max-width: $responsible) {
+        & {
+          text-align: left;
+        }
+      }
+    }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 40%;
+      border-top: 1px solid $middle-light-color;
+      right: 50%;
+      transform: translate(50%);
+      @media screen and (max-width: $responsible) {
+        width: 100%;
+      }
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+  }
+  .wrapper {
+    padding: 5px;
+    width: (100% / 3);
+    @media screen and (max-width: $responsible) {
+      & {
+        width: (100% / 2);
+      }
+    }
+    .article {
+      display: flex;
+      flex-direction: column;
+      background-color: $middle-light-color;
+      padding: 10px;
+    }
+  }
+}
+
