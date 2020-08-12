@@ -1,0 +1,40 @@
+@import "./variables.scss";
+
+.header {
+  background-color: $main-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 10;
+  .section {
+    min-height: $basic-vertical-padding;
+    display: flex;
+    align-items: center;
+    &__logo {
+      font-size: 34px;
+      color: $middle-light-color;
+    }
+  }
+}
+
+.main {
+  padding-top: $basic-vertical-padding;
+  padding-bottom: $basic-vertical-padding;
+  background-color: $main-color;
+  overflow: hidden;
+}
+
+.footer {
+  background-color: $main-color;
+  padding: $basic-vertical-padding 0;
+  border-top: $middle-light-color 0.1px solid;
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    * {
+      color: $middle-light-color;
+    }
+  }
+}
