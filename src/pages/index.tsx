@@ -7,13 +7,15 @@ import PostCard from '../components/postCard'
 
 const Index = ({
   allPosts: { edges: postEdges },
-  Settings: { generalSettingsDescription, generalSettingsTitle }
+  Settings: { generalSettingsDescription, generalSettingsTitle },
+  allPages: { edges: pageEdges }
 }) => {
 
   const title: string = generalSettingsTitle
   const descriptions: string[] = generalSettingsDescription.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")
 
-  const heroPost = postEdges[0]?.node
+  const articles = [...postEdges, pageEdges[0]]
+  console.log({articles})
 
   const showIntro = () => {
     return (
@@ -45,15 +47,12 @@ const Index = ({
       </div>
       <div className={styles.container}>
         {
-          postEdges.map(({node}) => (
+          articles.map(({node}) => (
             <PostCard
               key={node.id}
               title={node.title}
               coverImage={node.featuredImage.node.sourceUrl}
               date={node.date}
-              excerpt={node.excerpt}
-              author={node.author.node.name}
-              slug={node.slug}
             />
           ))
         }
