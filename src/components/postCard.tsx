@@ -1,21 +1,19 @@
-import styles from '../styles/index.module.scss'
+import Link from 'next/link'
+import styles from '../styles/postCard.module.scss'
 
 const PostCard = ({
   title,
   coverImage,
   date,
-  excerpt,
-  author,
-  slug
 }) => (
   <section className={styles.wrapper}>
     <article className={styles.article}>
-      <img src={coverImage} alt={title} width={300} />
-      <h2>{title}</h2>
-      <p>{excerpt}</p>
-      <p>{date}</p>
-      <p>{author}</p>
-      <p>{slug}</p>
+      <img src={coverImage} alt={title} height={300} className={styles.article__image} />
+      <div className={styles.article__contents}>
+        <h2 className={styles.article__contents__title}>{title}</h2>
+        <p className={styles.article__contents__date}>{date}</p>
+      </div>
+      <Link href=""><a className={styles.article__contents__link}></a></Link>
     </article>
   </section>
 )

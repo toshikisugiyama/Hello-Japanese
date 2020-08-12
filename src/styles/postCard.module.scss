@@ -1,0 +1,63 @@
+@import "./variables.scss";
+
+.wrapper {
+  padding: 5px;
+  width: (100% / 3);
+  @media screen and (max-width: $responsible) {
+    & {
+      width: (100% / 2);
+    }
+  }
+  .article {
+    display: flex;
+    flex-direction: column;
+    background-color: $middle-light-color;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 1px 1px 5px 0 $middle-light-color;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: $dark-color, $alpha: 0.6);
+    }
+    &__image {
+      object-fit: cover;
+    }
+    &__contents {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      user-select: none;
+      &__title {
+        font-size: 34px;
+        @media screen and (max-width: $responsible) {
+          font-size: 5vmin;
+        }
+      }
+      &__date {
+        font-size: 20px;
+        text-align: right;
+        @media screen and (max-width: $responsible) {
+          font-size: 3vmin;
+        }
+      }
+      &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

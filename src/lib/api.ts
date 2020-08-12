@@ -75,6 +75,7 @@ export const getAllPagesForHome = async () => {
       pages(first:20, where: { orderby: {field: DATE, order: DESC}}) {
         edges {
           node {
+            id
             title
             slug
             date

@@ -85,20 +85,5 @@
       bottom: 0;
     }
   }
-  .wrapper {
-    padding: 5px;
-    width: (100% / 3);
-    @media screen and (max-width: $responsible) {
-      & {
-        width: (100% / 2);
-      }
-    }
-    .article {
-      display: flex;
-      flex-direction: column;
-      background-color: $middle-light-color;
-      padding: 10px;
-    }
-  }
 }
 
