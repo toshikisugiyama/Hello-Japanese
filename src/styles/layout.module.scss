@@ -12,9 +12,21 @@
     min-height: $basic-vertical-padding;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     &__logo {
       font-size: 34px;
       color: $middle-light-color;
+      @media screen and (max-width: $responsible) {
+        font-size: 6vmin;
+      }
+    }
+    nav {
+      a {
+        color: $middle-light-color;
+        @media screen and (max-width: $responsible) {
+          font-size: 3vmin;
+        }
+      }
     }
   }
 }

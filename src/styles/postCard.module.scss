@@ -4,9 +4,7 @@
   padding: 5px;
   width: (100% / 3);
   @media screen and (max-width: $responsible) {
-    & {
-      width: (100% / 2);
-    }
+    width: (100% / 2);
   }
   .article {
     display: flex;

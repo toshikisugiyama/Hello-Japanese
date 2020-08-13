@@ -19,11 +19,9 @@
     background-position: bottom 0 right 0;
     filter: drop-shadow(0 15px 20px $middle-light-color);
     @media screen and (max-width: $responsible) {
-      & {
-        transform: none;
-        min-height: 150px;
-        background-position: top 0 center;
-      }
+      transform: none;
+      min-height: 150px;
+      background-position: top 0 center;
     }
   }
   .top {
@@ -33,9 +31,7 @@
       margin: 0 0 ($basic-vertical-padding / 2);
       line-height: 120%;
       @media screen and (max-width: $responsible) {
-        & {
-          font-size: 15vmin;
-        }
+        font-size: 15vmin;
       }
     }
   }
@@ -48,9 +44,7 @@
     width: 100%;
     padding: $basic-vertical-padding;
     @media screen and (max-width: $responsible) {
-      & {
-        padding: $basic-vertical-padding 0;
-      }
+      padding: $basic-vertical-padding 0;
     }
     &__title {
       font-size: 34px;
@@ -61,9 +55,7 @@
     &__description {
       text-align: center;
       @media screen and (max-width: $responsible) {
-        & {
-          text-align: left;
-        }
+        text-align: left;
       }
     }
     &::before,

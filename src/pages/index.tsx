@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import styles from '../styles/index.module.scss'
 import { GetStaticProps } from 'next'
 import { getAllPostsForHome, getSettings, getAllPagesForHome } from '../lib/api'
-import PostCard from '../components/postCard'
+import PostCard from '../components/post-card'
 
 const Index = ({
   allPosts: { edges: postEdges },
@@ -19,8 +19,12 @@ const Index = ({
   const showIntro = () => {
     return (
       <section className={styles.intro}>
-        <h2 className={styles.intro__title}>Japanese Language Study Site</h2>
-        <p className={styles.intro__description}>This site is for you if you're learning Japanese language. Let's enjoy and study Japanese!</p>
+        <h2 className={styles.intro__title}>
+          You can Learn Japanese Language Here
+        </h2>
+        <p className={styles.intro__description}>
+          This site is for you if you want to learn Japanese language. Let's enjoy and study Japanese!
+        </p>
       </section>
     )
   }
@@ -28,6 +32,7 @@ const Index = ({
   return (
     <Layout
       title={title}
+      pages={pageEdges.map(({node}) => node.slug)}
     >
       <Head>
         <title>{title}</title>

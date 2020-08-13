@@ -3,11 +3,20 @@ import Header from '../components/header'
 import Footer from './footer'
 import styles from '../styles/layout.module.scss'
 
-const Layout = ({children, title}: {children: ReactNode, title: string}) => {
+const Layout = ({
+  children,
+  title,
+  pages
+}: {
+  children: ReactNode,
+  title: string,
+  pages: string[]
+}) => {
   return (
     <>
       <Header
         title={title}
+        pages={pages}
       />
       <main className={styles.main}>
         <section>

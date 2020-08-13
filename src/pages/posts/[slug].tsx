@@ -10,15 +10,18 @@ import styles from '../../styles/article.module.scss'
 
 const Post = ({
   post,
-  info: { generalSettingsTitle: title }
+  info: { generalSettingsTitle: title },
+  allPages
 }) => {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+  const categories = post?.categories.edges.map((category) => category.node.name)
   return (
     <Layout
       title={title}
+      pages={allPages.edges.map(({node}) => node.slug)}
     >
       <Head>
         <title>{post.title}</title>
@@ -32,7 +35,7 @@ const Post = ({
            title={post.title}
            coverImage={post.featuredImage.node.sourceUrl}
            date={post.date}
-           categories={post.categories.edges.node}
+           categories={categories}
         />
         <PostBody
           content={post.content}
@@ -48,11 +51,13 @@ const Post = ({
 export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
   const data = await getPostAndMore( params.slug, preview, previewData )
   const info = await getSettings()
+  const allPages = await getAllPagesWithSlug()
   return {
     props: {
       post: data.post,
       posts: data.posts,
-      info
+      info,
+      allPages
     }
   }
 }
