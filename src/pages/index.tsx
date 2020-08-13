@@ -7,7 +7,7 @@ import PostCard from '../components/postCard'
 
 const Index = ({
   allPosts: { edges: postEdges },
-  Settings: { generalSettingsDescription, generalSettingsTitle },
+  info: { generalSettingsDescription, generalSettingsTitle },
   allPages: { edges: pageEdges }
 }) => {
 
@@ -26,7 +26,9 @@ const Index = ({
   }
 
   return (
-    <Layout>
+    <Layout
+      title={title}
+    >
       <Head>
         <title>{title}</title>
       </Head>
@@ -64,9 +66,9 @@ const Index = ({
 export const getStaticProps: GetStaticProps = async () => {
   const allPosts = await getAllPostsForHome()
   const allPages = await getAllPagesForHome()
-  const Settings = await getSettings()
+  const info = await getSettings()
   return {
-    props: { allPosts, allPages, Settings }
+    props: { allPosts, allPages, info }
   }
 }
 
