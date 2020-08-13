@@ -1,9 +1,12 @@
 import styles from '../styles/layout.module.scss'
-const Footer = () => {
+import CopyRight from './copy-right'
+const Footer = ({title}) => {
   return (
     <footer className={styles.footer}>
       <section>
-        <p>2020 Hello Japanese</p>
+        <CopyRight
+          name={title}
+        />
       </section>
     </footer>
   )
