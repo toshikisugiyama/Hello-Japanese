@@ -12,7 +12,10 @@ const Index = ({
 }) => {
 
   const title: string = generalSettingsTitle
-  const descriptions: string[] = generalSettingsDescription.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")
+  const descriptions: string[] = generalSettingsDescription
+    .replace(/([.?!])\s*(?=[A-Z])/g, "$1|")
+    .split("|")
+    .map((description: string) => description.replace('&#039;', "'"))
 
   const articles = [...postEdges, pageEdges[0]]
 
