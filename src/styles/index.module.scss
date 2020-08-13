@@ -31,6 +31,7 @@
     &__title {
       font-size: 96px;
       margin: 0 0 ($basic-vertical-padding / 2);
+      line-height: 120%;
       @media screen and (max-width: $responsible) {
         & {
           font-size: 15vmin;
@@ -44,7 +45,6 @@
   display: flex;
   flex-wrap: wrap;
   .intro {
-    position: relative;
     width: 100%;
     padding: $basic-vertical-padding;
     @media screen and (max-width: $responsible) {
@@ -69,20 +69,19 @@
     &::before,
     &::after {
       content: '';
-      position: absolute;
-      width: 40%;
+      width: 60%;
+      display: block;
       border-top: 1px solid $middle-light-color;
-      right: 50%;
-      transform: translate(50%);
+      margin: 0 auto;
       @media screen and (max-width: $responsible) {
         width: 100%;
       }
     }
     &::before {
-      top: 0;
+      transform: translate(0, $basic-vertical-padding * -1);
     }
     &::after {
-      bottom: 0;
+      transform: translate(0, $basic-vertical-padding);
     }
   }
 }

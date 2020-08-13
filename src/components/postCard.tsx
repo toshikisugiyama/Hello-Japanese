@@ -5,6 +5,7 @@ const PostCard = ({
   title,
   coverImage,
   date,
+  slug
 }) => (
   <section className={styles.wrapper}>
     <article className={styles.article}>
@@ -13,7 +14,7 @@ const PostCard = ({
         <h2 className={styles.article__contents__title}>{title}</h2>
         <p className={styles.article__contents__date}>{date}</p>
       </div>
-      <Link href=""><a className={styles.article__contents__link}></a></Link>
+      <Link as={`/posts/${slug}`} href="/posts/[slug]"><a className={styles.article__contents__link}></a></Link>
     </article>
   </section>
 )
