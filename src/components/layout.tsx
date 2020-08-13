@@ -23,7 +23,9 @@ const Layout = ({
           {children}
         </section>
       </main>
-      <Footer />
+      <Footer
+        title={title}
+      />
     </>
   )
 }
