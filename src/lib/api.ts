@@ -56,6 +56,13 @@ export const getAllPostsForHome = async () => {
                 name
               }
             }
+            categories {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
           }
         }
       }

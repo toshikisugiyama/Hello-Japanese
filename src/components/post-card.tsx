@@ -5,7 +5,7 @@ const PostCard = ({
   title,
   coverImage,
   date,
-  slug
+  slug,
 }) => (
   <section className={styles.wrapper}>
     <article className={styles.article}>

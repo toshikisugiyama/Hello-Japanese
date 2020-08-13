@@ -3,7 +3,7 @@ interface params {
   title: string,
   coverImage: string,
   date: string,
-  categories: string
+  categories: string[]
 }
 const PostHeader = ({
   title,
@@ -27,7 +27,11 @@ const PostHeader = ({
       width={450}
       className={`${styles.header__image} ${styles.header__image_sm}`}
     />
-    <p>{categories}</p>
+    <div className={styles.header__categories}>
+      {categories.map((category: string) => (
+        <span key={category}>{category}</span>
+      ))}
+    </div>
     <h1 className={styles.header__title}>{title}</h1>
     <p className={styles.header__date}>{date}</p>
   </>
