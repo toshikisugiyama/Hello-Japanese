@@ -15,7 +15,6 @@ const Index = ({
   const descriptions: string[] = generalSettingsDescription.replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|")
 
   const articles = [...postEdges, pageEdges[0]]
-  console.log({articles})
 
   const showIntro = () => {
     return (
@@ -53,6 +52,7 @@ const Index = ({
               title={node.title}
               coverImage={node.featuredImage.node.sourceUrl}
               date={node.date}
+              slug={node.slug}
             />
           ))
         }
