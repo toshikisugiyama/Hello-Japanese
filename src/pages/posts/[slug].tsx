@@ -74,7 +74,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const allArticles = [...allPosts?.edges, ...allPages?.edges]
     return {
       paths: allArticles.map(({node}) => `/posts/${node.slug}`) || [],
-      fallback: true
+      fallback: false
     }
   } catch (error) {
     console.error(error)
