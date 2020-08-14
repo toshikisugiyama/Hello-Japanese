@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+.sns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  margin: 0 auto;
+  img {
+    object-fit: cover;
+    filter: drop-shadow(0 0 10px $middle-light-color);
+  }
+}

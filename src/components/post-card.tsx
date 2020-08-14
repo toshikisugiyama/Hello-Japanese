@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/postCard.module.scss'
+import styles from '../styles/post-card.module.scss'
 
 const PostCard = ({
   title,
