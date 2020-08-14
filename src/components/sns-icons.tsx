@@ -15,8 +15,12 @@ const SnsIcons = () => {
       name: 'instagram',
       url: 'https://www.instagram.com/hellojapanese1'
     },
+    {
+      name: 'github',
+      url: 'https://github.com/toshikisugiyama/Hello-Japanese'
+    },
   ]
-  const path: string = 'https://hello-japanese.s3.ap-northeast-1.amazonaws.com/2020/04/'
+  const path: string = 'https://hello-japanese.s3.ap-northeast-1.amazonaws.com/2020/08/'
 
   return (
     <div className={styles.sns}>
