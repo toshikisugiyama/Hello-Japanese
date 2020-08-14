@@ -72,11 +72,15 @@ const Index = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPosts = await getAllPostsForHome()
-  const allPages = await getAllPagesForHome()
-  const info = await getSettings()
-  return {
-    props: { allPosts, allPages, info }
+  try {
+    const allPosts = await getAllPostsForHome()
+    const allPages = await getAllPagesForHome()
+    const info = await getSettings()
+    return {
+      props: { allPosts, allPages, info }
+    }
+  } catch (error) {
+    console.error(error)
   }
 }
 
