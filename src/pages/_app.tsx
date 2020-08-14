@@ -1,8 +1,10 @@
 import 'reset-css'
 import '../styles/globals.scss'
 import Head from 'next/head'
-import router from 'next/router'
-import withGA from 'next-ga'
+import Router from 'next/router'
+import * as gtag from '../lib/gtag'
+
+Router.events.on('routeChangeComplete', (url: string) => gtag.pageview(url))
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -18,4 +20,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default withGA(process.env.GOOGLE_ANALYTICS_TRACKING_ID, router)(MyApp)
+export default MyApp
