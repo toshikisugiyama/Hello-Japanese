@@ -21,7 +21,7 @@ const SnsIcons = () => {
   return (
     <div className={styles.sns}>
       {snsItems.map(({name, url}) => (
-        <a href={url}>
+        <a href={url} key={name}>
           <img src={`${path}${name}.png`} alt={name} width={50} />
         </a>
       ))}
