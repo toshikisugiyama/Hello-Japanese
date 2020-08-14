@@ -23,10 +23,10 @@ const Index = ({
     return (
       <section className={styles.intro}>
         <h2 className={styles.intro__title}>
-          You can Learn Japanese Language Here
+          Let's Learn Japanese Language
         </h2>
         <p className={styles.intro__description}>
-          This site is for you if you want to learn Japanese language. Let's enjoy and study Japanese!
+          Do you want to learn Japanese language? Then, check this site! This site is for you if you want to learn Japanese language. Let's enjoy and study Japanese!
         </p>
       </section>
     )

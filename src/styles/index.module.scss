@@ -50,12 +50,17 @@
       font-size: 34px;
       margin-bottom: $basic-vertical-padding / 2;
       line-height: 120%;
+      text-align: center;
+    }
+    &__description {
+      width: 60%;
+      margin: 0 auto;
     }
     &__title,
     &__description {
-      text-align: center;
       @media screen and (max-width: $responsible) {
         text-align: left;
+        width: 100%;
       }
     }
     &::before,
