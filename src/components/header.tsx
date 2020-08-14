@@ -19,7 +19,7 @@ const Header = ({
   const showNav = () => (
     <ul>
       {
-        navs.map((nav: string) => {
+        navs?.map((nav: string) => {
           return (
             <li key={nav}>
               <Link href={`/posts/${nav}`}><a>{nav.toLocaleUpperCase()}</a></Link>

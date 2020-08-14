@@ -10,38 +10,39 @@ import styles from '../../styles/article.module.scss'
 
 const Post = ({
   post,
-  info: { generalSettingsTitle: title },
+  info,
   allPages
 }) => {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
-  const categories = post?.categories.edges.map((category) => category.node.name)
+  const categories = post?.categories.edges.map((category: any) => category.node.name)
   return (
     <Layout
-      title={title}
-      pages={allPages.edges.map(({node}) => node.slug)}
+      title={info?.generalSettingsTitle}
+      // pages={allPages?.edges.map(({node}) => node.slug)}
+      pages={['introduction']}
     >
       <Head>
-        <title>{post.title}</title>
+        <title>{post?.title}</title>
         <meta
           property="og:image"
-          content={post.featuredImage?.node?.sourceUrl}
+          content={post?.featuredImage.node.sourceUrl}
         />
       </Head>
       <article>
         <PostHeader
-           title={post.title}
-           coverImage={post.featuredImage.node.sourceUrl}
-           date={post.date}
+           title={post?.title}
+           coverImage={post?.featuredImage.node.sourceUrl}
+           date={post?.date}
            categories={categories}
         />
         <PostBody
-          content={post.content}
+          content={post?.content}
         />
         <div className={styles.author}>
-          <p>{post.author.node.name}</p>
+          <p>{post?.author.node.name}</p>
         </div>
       </article>
     </Layout>
@@ -49,26 +50,34 @@ const Post = ({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
-  const data = await getPostAndMore( params.slug, preview, previewData )
-  const info = await getSettings()
-  const allPages = await getAllPagesWithSlug()
-  return {
-    props: {
-      post: data.post,
-      posts: data.posts,
-      info,
-      allPages
+  try {
+    const data = await getPostAndMore( params.slug, preview, previewData )
+    const info = await getSettings()
+    const allPages = await getAllPagesWithSlug()
+    return {
+      props: {
+        post: data.post,
+        posts: data.posts,
+        info,
+        allPages
+      }
     }
+  } catch (error) {
+    console.error(error)
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPosts = await getAllPostsWithSlug()
-  const allPages = await getAllPagesWithSlug()
-  const allArticles = [...allPosts.edges, ...allPages.edges]
-  return {
-    paths: allArticles.map(({node}) => `/posts/${node.slug}`) || [],
-    fallback: true
+  try {
+    const allPosts = await getAllPostsWithSlug()
+    const allPages = await getAllPagesWithSlug()
+    const allArticles = [...allPosts?.edges, ...allPages?.edges]
+    return {
+      paths: allArticles.map(({node}) => `/posts/${node.slug}`) || [],
+      fallback: false
+    }
+  } catch (error) {
+    console.error(error)
   }
 }
 

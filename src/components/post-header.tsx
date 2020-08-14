@@ -11,7 +11,7 @@ const PostHeader = ({
   date,
   categories
 }: params) => {
-  const spImg: string = `${coverImage.split('.png')[0]}_sp.png`
+  const spImg: string = `${coverImage?.split('.png')[0]}_sp.png`
   const topImgAlt: string = `The top image for this article, which title is '${title}'`
   return (
   <>
@@ -28,7 +28,7 @@ const PostHeader = ({
       className={`${styles.header__image} ${styles.header__image_sm}`}
     />
     <div className={styles.header__categories}>
-      {categories.map((category: string) => (
+      {categories?.map((category: string) => (
         <span key={category}>{category}</span>
       ))}
     </div>
